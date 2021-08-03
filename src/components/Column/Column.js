@@ -6,6 +6,12 @@ import Creator from '../Creator/Creator';
 import {settings} from '../../data/dataStore.js';
 
 class Column extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.addCard = this.addCard.bind(this);
+  }
+
   state = {
     cards: this.props.cards || [],
   }
@@ -21,10 +27,8 @@ class Column extends React.Component {
         cards: [
           ...state.cards,
           {
-            key: state.columns.length ? state.columns[state.columns.length-1].key+1 : 0,
+            key: state.cards.length ? state.cards[state.cards.length-1].key+1 : 0,
             title,
-            // icon: 'list-alt',
-            // cards: []
           }
         ]
       }
